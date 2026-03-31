@@ -3,7 +3,7 @@
     <div class="container">
         <p><strong><?= htmlspecialchars(APP_NAME) ?></strong></p>
         <p>Couverture editoriale 2024-2026 : chronologie, diplomatie, impacts energetiques et humanitaires.</p>
-        <!-- <p>
+        <p>
             <a href="<?= BASE_URL ?>/nouveautes">Nouveautes</a> |
             <a href="<?= BASE_URL ?>/debats">Debats</a> |
             <a href="<?= BASE_URL ?>/journaux">Journaux epingles</a> |
@@ -17,7 +17,7 @@
             <a href="<?= BASE_URL ?>/sitemap.xml">Sitemap XML</a> |
             <a href="<?= BASE_URL ?>/robots.txt">Robots.txt</a> |
             <a href="<?= ADMIN_PATH ?>">Back office</a>
-        </p> -->
+        </p>
     </div>
 </footer>
 <!-- <?php
