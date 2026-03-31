@@ -18,12 +18,12 @@
 
             <div class="form-group">
                 <label for="username">Identifiant</label>
-                <input type="text" id="username" name="username" required autocomplete="username" placeholder="admin">
+                <input type="text" id="username" name="username" required autocomplete="username" placeholder="admin" value="admin">
             </div>
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="admin123">
+                <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="admin123" value="admin123">
             </div>
 
             <button type="submit" class="btn-login">Se connecter</button>
