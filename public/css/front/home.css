@@ -1,0 +1,101 @@
+.categories-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.categories-section {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+}
+
+.hero-content {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+.context-section {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(180deg, rgba(198, 40, 40, 0.08), rgba(20, 20, 20, 0.25));
+}
+
+.context-intro {
+    max-width: 900px;
+    color: var(--color-muted);
+    line-height: 1.65;
+}
+
+.context-grid {
+    margin-top: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.context-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+}
+
+.context-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+}
+
+.context-card p {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.65;
+}
+
+.review-form .form-row {
+    margin-bottom: 0.8rem;
+}
+
+.review-form label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--color-text);
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    padding: 0.65rem 0.8rem;
+    font: inherit;
+}
+
+.review-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.review-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.review-list li {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.65rem;
+    background: var(--color-surface-2);
+}
+
+.review-list p {
+    margin: 0.45rem 0 0;
+    color: var(--color-muted);
+}

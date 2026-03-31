@@ -1,0 +1,125 @@
+.article-detail figcaption {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.6rem 1rem 1rem;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+}
+
+.article-content ul,
+.article-content ol {
+    margin: 0.6rem 0 1rem 1.2rem;
+}
+
+.article-content a {
+    text-decoration: underline;
+}
+
+.article-content img {
+    margin: 1rem auto;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.article-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.article-engagement {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.article-rating-summary {
+    color: var(--color-muted);
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.7rem;
+}
+
+.favorite-btn.active {
+    border-color: var(--color-primary);
+    color: #ffccbc;
+    background: rgba(198, 40, 40, 0.16);
+}
+
+.comment-form {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comment-form .form-row {
+    margin-bottom: 0.7rem;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.comment-form input,
+.comment-form select,
+.comment-form textarea {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    font: inherit;
+    padding: 0.6rem 0.75rem;
+}
+
+.comment-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.comment-item {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-surface);
+    padding: 0.75rem;
+}
+
+.comment-rating {
+    color: var(--color-primary);
+    margin-left: 0.4rem;
+}
+
+.comment-date {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+}
+
+.image-source-link {
+    margin: 0.6rem auto 0;
+    max-width: 1200px;
+    padding: 0 1rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+}
+
+.image-source-link a {
+    color: var(--color-primary);
+}

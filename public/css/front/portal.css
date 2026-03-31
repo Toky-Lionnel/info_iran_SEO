@@ -1,0 +1,244 @@
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.portal-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    animation: portalReveal 0.35s ease both;
+}
+
+.portal-card h1,
+.portal-card h2,
+.portal-card h3 {
+    margin-top: 0;
+}
+
+.portal-content p {
+    margin-bottom: 0.8rem;
+}
+
+.portal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.portal-list li {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface-2);
+    padding: 0.65rem;
+}
+
+.portal-list p {
+    margin: 0.4rem 0 0;
+    color: var(--color-muted);
+}
+
+.notification-item.unread {
+    border-left: 3px solid var(--color-primary);
+    background: rgba(198, 40, 40, 0.12);
+}
+
+.notification-item small {
+    color: var(--color-muted);
+}
+
+.review-form .form-row {
+    margin-bottom: 0.8rem;
+}
+
+.review-form label {
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    font: inherit;
+    padding: 0.65rem 0.8rem;
+}
+
+.review-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.profile-stats {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.profile-stats li {
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.55rem 0.65rem;
+}
+
+.danger-zone {
+    border: 1px dashed rgba(198, 40, 40, 0.5);
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.btn-secondary {
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+.btn-secondary.danger {
+    background: transparent;
+    color: #ffb4b4;
+    border: 1px solid rgba(198, 40, 40, 0.65);
+}
+
+.btn-secondary.danger:hover {
+    background: rgba(198, 40, 40, 0.2);
+}
+
+/* Journaux page */
+.journals-page .container {
+    display: grid;
+    gap: 1rem;
+}
+
+.journals-hero {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(198, 40, 40, 0.22), transparent 55%),
+        linear-gradient(145deg, #171717, #111111);
+    box-shadow: var(--shadow);
+    padding: clamp(1.2rem, 2.8vw, 2rem);
+}
+
+.journals-hero::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    top: -70px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.journals-hero h1 {
+    margin-bottom: 0.55rem;
+}
+
+.journals-hero .page-intro {
+    margin: 0;
+    max-width: 68ch;
+}
+
+.journals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1rem;
+}
+
+.journal-card {
+    position: relative;
+    padding: 1.1rem;
+    border-left: 3px solid rgba(198, 40, 40, 0.65);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 55%),
+        var(--color-surface);
+}
+
+.journal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.7rem;
+}
+
+.journal-badge {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(198, 40, 40, 0.6);
+    border-radius: 999px;
+    padding: 0.22rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #ffb4b4;
+    background: rgba(198, 40, 40, 0.18);
+}
+
+.journal-head time {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+}
+
+.journal-card h2 {
+    margin-bottom: 0.5rem;
+}
+
+.journal-summary {
+    margin-bottom: 0.8rem;
+    color: #c5c5c5;
+}
+
+.journal-card .portal-content {
+    color: #dddddd;
+    line-height: 1.65;
+}
+
+.journal-card .portal-content h2,
+.journal-card .portal-content h3,
+.journal-card .portal-content h4 {
+    margin-top: 0.9rem;
+    margin-bottom: 0.45rem;
+}
+
+.journal-card .portal-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+    .journals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@keyframes portalReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

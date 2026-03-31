@@ -1,0 +1,109 @@
+body.admin-body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+}
+
+.admin-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: var(--admin-surface);
+    border-right: 1px solid var(--admin-border);
+    overflow-y: auto;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.3rem 1.1rem;
+    border-bottom: 1px solid var(--admin-border);
+    color: var(--admin-primary);
+    font-weight: 800;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.6rem 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 0.7rem 1.1rem;
+    color: var(--admin-text);
+    text-decoration: none;
+    border-right: 3px solid transparent;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    color: var(--admin-primary);
+    background: rgba(198, 40, 40, 0.12);
+    border-right-color: var(--admin-primary);
+}
+
+.admin-main {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 1.5rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--admin-border);
+    background: var(--admin-surface);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--admin-muted);
+    border-bottom: 1px solid var(--admin-border);
+    background: var(--admin-surface-2);
+}
+
+.admin-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    font-size: 0.88rem;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.admin-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .admin-main {
+        margin-left: 0;
+        width: 100%;
+    }
+}

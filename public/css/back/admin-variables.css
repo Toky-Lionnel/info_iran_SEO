@@ -1,0 +1,10 @@
+:root {
+    --admin-bg: #0d0d0d;
+    --admin-surface: #171717;
+    --admin-surface-2: #1f1f1f;
+    --admin-border: #2a2a2a;
+    --admin-primary: #c62828;
+    --admin-text: #e6e6e6;
+    --admin-muted: #9b9b9b;
+    --sidebar-width: 250px;
+}

@@ -1,0 +1,112 @@
+Options -Indexes
+Options +FollowSymLinks
+
+RewriteEngine On
+
+# Bloquer les methodes HTTP non necessaires.
+RewriteCond %{REQUEST_METHOD} ^(?:TRACE|TRACK|DEBUG)$ [NC]
+RewriteRule ^ - [F,L]
+
+# Conserver l en-tete Authorization pour PHP.
+RewriteCond %{HTTP:Authorization} .
+RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Bloquer les patterns URL suspects (path traversal / encodages malveillants).
+RewriteCond %{THE_REQUEST} \s/+[^\s]*\.\.[^\s]* [NC,OR]
+RewriteCond %{REQUEST_URI} (\.\.|%2e%2e|\\) [NC,OR]
+RewriteCond %{QUERY_STRING} (\.\.|%2e%2e|%5c|%00) [NC]
+RewriteRule ^ - [F,L]
+
+# Bloquer les fichiers et dossiers caches.
+RewriteRule "(^|/)\.(?!well-known/)" - [F,L]
+
+# Bloquer l acces HTTP direct aux couches internes.
+RewriteRule ^(?:config|core|models|controllers|views|database)(?:/|$) - [F,L,NC]
+
+# Sitemap dynamique.
+RewriteRule ^sitemap\.xml$ sitemap.php [L,NC]
+
+# Marquer les zones sensibles pour des headers de cache stricts.
+RewriteRule ^admin(?:/|$) - [E=IS_ADMIN:1]
+RewriteRule ^api/(?:favorite|notifications(?:/read)?|analytics)$ - [E=IS_PRIVATE_API:1,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/admin(?:/|$) [NC]
+RewriteCond %{REQUEST_URI} !/api/(?:favorite|notifications(?:/read)?|analytics)(?:/|$) [NC]
+RewriteRule ^ - [E=IS_PUBLIC_DYNAMIC:1]
+
+# Laisser passer les fichiers/dossiers existants.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Front controller unique.
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Security headers.
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header set X-UA-Compatible "IE=Edge,chrome=1"
+    Header merge Vary "Accept-Encoding"
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0" env=IS_ADMIN
+    Header always set Pragma "no-cache" env=IS_ADMIN
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0" env=IS_PRIVATE_API
+    Header always set Pragma "no-cache" env=IS_PRIVATE_API
+    Header always set Cache-Control "private, max-age=300, stale-while-revalidate=30" env=IS_PUBLIC_DYNAMIC
+    Header always unset Pragma env=IS_PUBLIC_DYNAMIC
+    Header always unset Expires env=IS_PUBLIC_DYNAMIC
+</IfModule>
+
+# Block sensitive files.
+<FilesMatch "^(?:\.htaccess|\.env|config\.php|.*\.sql)$">
+    Require all denied
+</FilesMatch>
+
+# Gzip compression.
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE text/javascript application/javascript
+    AddOutputFilterByType DEFLATE application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml application/xhtml+xml
+</IfModule>
+
+# Browser cache.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 month"
+</IfModule>
+
+# MIME types.
+AddType application/javascript js
+AddType image/webp webp
+AddType image/svg+xml svg svgz
+AddEncoding gzip svgz
+AddType font/woff2 woff2
+AddType font/woff woff
+
+# Disable ETag.
+FileETag None
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+
+# UTF-8.
+AddDefaultCharset utf-8
+AddCharset utf-8 .html .css .js .xml .json .php
+
+# Custom errors.
+ErrorDocument 404 index.php?url=404
+ErrorDocument 403 index.php?url=403

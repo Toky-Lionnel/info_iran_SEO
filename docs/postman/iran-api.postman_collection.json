@@ -1,0 +1,293 @@
+{
+  "info": {
+    "_postman_id": "d137e4f8-9948-4ef0-b533-cf9b99aa6408",
+    "name": "Iran Platform API",
+    "description": "Collection API interne FO/BO - events, timeline, stats, articles, favorites, notifications, analytics. Manual setup required: set {{base_url}} and replace {{csrf_token}} (default REPLACE_WITH_SESSION_TOKEN) with a real session token. Complete guide: docs/postman/POSTMAN_GUIDE_COMPLET.md",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /api/events",
+      "request": {
+        "method": "GET",
+        "description": "Endpoint public carte. Filtres type/date_from/date_to.",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/events?type=militaire&date_from=2025-01-01&date_to=2026-12-31",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "events"
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "militaire"
+            },
+            {
+              "key": "date_from",
+              "value": "2025-01-01"
+            },
+            {
+              "key": "date_to",
+              "value": "2026-12-31"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/timeline",
+      "request": {
+        "method": "GET",
+        "description": "Endpoint public timeline. Filtrage par categorie/date.",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/timeline?category=diplomatique",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "timeline"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "diplomatique"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/stats",
+      "request": {
+        "method": "GET",
+        "description": "Endpoint public statistiques. Retourne data tabulaire + series.",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/stats?type=pertes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "stats"
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "pertes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/articles",
+      "request": {
+        "method": "GET",
+        "description": "Endpoint public articles. Filtres q + limit (1..50).",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/articles?limit=12&q=ormuz",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "articles"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "12"
+            },
+            {
+              "key": "q",
+              "value": "ormuz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/favorite",
+      "request": {
+        "method": "POST",
+        "description": "Endpoint prive. Session abonne + CSRF obligatoires. Toggle favori article.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "X-CSRF-Token",
+            "value": "{{csrf_token}}"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "csrf_token",
+              "value": "{{csrf_token}}",
+              "type": "text"
+            },
+            {
+              "key": "article_id",
+              "value": "{{article_id}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/favorite",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "favorite"
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET /api/notifications",
+      "request": {
+        "method": "GET",
+        "description": "Endpoint prive. Retourne les notifications du subscriber connecte.",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/notifications",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "notifications"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/notifications/read",
+      "request": {
+        "method": "POST",
+        "description": "Endpoint prive. Session + CSRF obligatoires. Marque une notification (id) ou toutes comme lues.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "X-CSRF-Token",
+            "value": "{{csrf_token}}"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "csrf_token",
+              "value": "{{csrf_token}}",
+              "type": "text"
+            },
+            {
+              "key": "id",
+              "value": "{{notification_id}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/notifications/read",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "notifications",
+            "read"
+          ]
+        }
+      }
+    },
+    {
+      "name": "POST /api/analytics",
+      "request": {
+        "method": "POST",
+        "description": "Endpoint tracking. Enregistre page + duree. Payload invalide => 422.",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "page",
+              "value": "/articles",
+              "type": "text"
+            },
+            {
+              "key": "duration",
+              "value": "42",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/analytics",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "analytics"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/iran"
+    },
+    {
+      "key": "csrf_token",
+      "value": "REPLACE_WITH_SESSION_TOKEN"
+    },
+    {
+      "key": "article_id",
+      "value": "1"
+    },
+    {
+      "key": "notification_id",
+      "value": ""
+    },
+    {
+      "key": "subscriber_email",
+      "value": "nadia.premium@iran.local"
+    },
+    {
+      "key": "subscriber_password",
+      "value": "abonne123"
+    },
+    {
+      "key": "admin_username",
+      "value": "admin"
+    },
+    {
+      "key": "admin_password",
+      "value": "admin123"
+    }
+  ]
+}

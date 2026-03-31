@@ -1,0 +1,60 @@
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+    color: var(--admin-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    background: var(--admin-surface-2);
+    color: var(--admin-text);
+    padding: 0.62rem 0.8rem;
+    font: inherit;
+}
+
+.form-group textarea {
+    min-height: 220px;
+    resize: vertical;
+}
+
+.btn-sm,
+.btn-save,
+.btn-login {
+    border: 1px solid var(--admin-border);
+    border-radius: 7px;
+    padding: 0.45rem 0.8rem;
+    color: var(--admin-text);
+    background: var(--admin-surface-2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-save,
+.btn-login {
+    background: var(--admin-primary);
+    color: #fff;
+    border-color: transparent;
+    font-weight: 700;
+}
+
+.btn-sm:hover,
+.btn-save:hover,
+.btn-login:hover {
+    border-color: var(--admin-primary);
+    color: var(--admin-primary);
+}
+
+.btn-save:hover,
+.btn-login:hover {
+    background: #e03c3c;
+    color: #fff;
+}

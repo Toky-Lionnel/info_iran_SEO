@@ -1,0 +1,119 @@
+.auth-layout {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 2rem);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(198, 40, 40, 0.2), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.06), transparent 40%),
+        linear-gradient(160deg, #0d0d0d, #111111 45%, #0b0b0b);
+}
+
+.login-container {
+    width: min(100%, 460px);
+    margin-inline: auto;
+}
+
+.login-card {
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: clamp(1.25rem, 3vw, 2.1rem);
+    background:
+        linear-gradient(165deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+        #151515;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.login-card-header {
+    margin-bottom: 1rem;
+}
+
+.login-kicker {
+    margin: 0 0 0.35rem;
+    color: #f0abab;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    font-weight: 700;
+}
+
+.login-card h1 {
+    margin: 0 0 0.35rem;
+    line-height: 1.2;
+}
+
+.login-subtitle {
+    margin: 0;
+    color: var(--admin-muted);
+}
+
+.login-card .alert {
+    margin: 0.95rem 0 1rem;
+}
+
+.login-card form {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.login-card .form-group {
+    margin: 0;
+}
+
+.login-card .form-group label {
+    margin-bottom: 0.45rem;
+    font-weight: 600;
+}
+
+.login-card .form-group input {
+    min-height: 48px;
+    border-radius: 10px;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.28);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.login-card .form-group input::placeholder {
+    color: #8f8f8f;
+}
+
+.login-card .form-group input:focus {
+    outline: none;
+    border-color: rgba(198, 40, 40, 0.75);
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.login-card .btn-login {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 0.2rem;
+    border-radius: 10px;
+    font-size: 0.98rem;
+}
+
+.login-hint {
+    margin: 0.95rem 0 0;
+    color: var(--admin-muted);
+    font-size: 0.86rem;
+}
+
+@media (max-width: 560px) {
+    .auth-layout {
+        align-items: stretch;
+        padding: 0.8rem;
+    }
+
+    .login-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .login-card {
+        border-radius: 14px;
+        padding: 1.1rem;
+    }
+}

@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Allow: /iran/
+Disallow: /admin/
+Disallow: /iran/admin/
+Disallow: /config/
+Disallow: /core/
+Disallow: /models/
+Disallow: /controllers/
+Disallow: /iran/config/
+Disallow: /iran/core/
+Disallow: /iran/models/
+Disallow: /iran/controllers/
+
+Sitemap: http://localhost/sitemap.xml
