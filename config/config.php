@@ -57,14 +57,14 @@ $envValue = static function (string $key, string $default): string {
 };
 
 define('DB_HOST', $envValue('DB_HOST', 'localhost'));
-define('DB_PORT', (int) $envValue('DB_PORT', '3307'));
+define('DB_PORT', (int) $envValue('DB_PORT', '3306'));
 define('DB_NAME', $envValue('DB_NAME', 'iran_war_db'));
 define('DB_USER', $envValue('DB_USER', 'root'));
 define('DB_PASS', $envValue('DB_PASS', ''));
 define('DB_CHARSET', $envValue('DB_CHARSET', 'utf8mb4'));
 
 define('APP_DIR_NAME', basename(dirname(__DIR__)));
-$defaultBaseUrl = 'http://localhost/' . APP_DIR_NAME;
+$defaultBaseUrl = 'http://localhost/SEMESTRE%206/iran_final/' . APP_DIR_NAME;
 $configuredBaseUrl = $envValue('APP_BASE_URL', $envValue('BASE_URL', $defaultBaseUrl));
 $configuredBaseUrl = rtrim($configuredBaseUrl, '/');
 if ($configuredBaseUrl === '') {
