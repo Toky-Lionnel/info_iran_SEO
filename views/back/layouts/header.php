@@ -8,13 +8,8 @@ $extraCss = $extraCss ?? [];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title><?= htmlspecialchars((string) ($seo['title'] ?? 'Administration')) ?> - Iran Admin</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/back/admin-variables.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/back/admin-layout.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/back/admin-forms.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/back/admin.css">
-    <?php foreach ($extraCss as $css): ?>
-        <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/back/<?= htmlspecialchars($css) ?>">
-    <?php endforeach; ?>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/back/back-style.css">
+
 </head>
 <body class="admin-body">
 <?php if (\App\Core\Session::isAdmin()): ?>

@@ -30,15 +30,8 @@ $navCategories = $navCategories ?? [];
         .navbar{background:#111;border-bottom:1px solid #2a2a2a;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center}
         .navbar-brand{color:#C62828;font-weight:800;text-decoration:none;font-size:1.2rem}
     </style>
-    <link rel="preload" href="<?= BASE_URL ?>/public/css/front/variables.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/variables.css"></noscript>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/reset.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/layout.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/components.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/main.css">
-    <?php foreach ($extraCss as $css): ?>
-        <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/<?= htmlspecialchars($css) ?>">
-    <?php endforeach; ?>
+    <!-- <link rel="preload" href="<?= BASE_URL ?>/public/css/front/variables.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/front/front-style.css">
     <script type="application/ld+json">
     <?= json_encode([
         '@context' => 'https://schema.org',
