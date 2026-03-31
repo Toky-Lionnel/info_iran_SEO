@@ -20,7 +20,7 @@
         </p> -->
     </div>
 </footer>
-<?php
+<!-- <?php
 $extraJs = $extraJs ?? [];
 $baseScripts = ['nav.js', 'lazyload.js', 'analytics.js'];
 if (\App\Core\Session::isSubscriber()) {
@@ -30,6 +30,9 @@ $scripts = array_values(array_unique(array_merge($baseScripts, $extraJs)));
 foreach ($scripts as $jsFile):
     ?>
     <script src="<?= BASE_URL ?>/public/js/front/<?= htmlspecialchars($jsFile) ?>" defer></script>
-<?php endforeach; ?>
+<?php endforeach; ?> -->
+
+
+<script src="<?= BASE_URL ?>/public/js/front/front.js" defer></script>
 </body>
 </html>
