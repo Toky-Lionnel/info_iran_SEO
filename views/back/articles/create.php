@@ -70,8 +70,11 @@ $errorFor = static function (string $field) use ($errors): string {
 
         <div class="form-group">
             <label for="cover_image">Image de couverture (URL)</label>
-            <input type="text" id="cover_image" name="cover_image" value="<?= htmlspecialchars((string) ($formData['cover_image'] ?? '')) ?>">
+            <!-- <input type="text" id="cover_image" name="cover_image" value="<?= htmlspecialchars((string) ($formData['cover_image'] ?? '')) ?>"> -->
+            <input type="file" id="cover_image" name="cover_image" accept="image/*">
             <?= $errorFor('cover_image') ?>
+            <img id="preview" style="max-width:200px; display:none;">
+
         </div>
 
         <div class="form-group">
@@ -94,3 +97,16 @@ $errorFor = static function (string $field) use ($errors): string {
         <button type="submit" class="btn-save">Enregistrer</button>
     </form>
 </section>
+
+
+
+<script>
+document.getElementById('cover_image').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const preview = document.getElementById('preview');
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = 'block';
+    }
+});
+</script>

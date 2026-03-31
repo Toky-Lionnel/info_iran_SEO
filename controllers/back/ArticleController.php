@@ -11,6 +11,7 @@ use App\Models\ArticleModel;
 use App\Models\AuthorModel;
 use App\Models\CategoryModel;
 use App\Models\CacheModel;
+use App\Models\ImageModel;
 use App\Models\NotificationModel;
 use App\Models\SeoAnalysisModel;
 use App\Models\SubscriberModel;
@@ -77,8 +78,30 @@ final class ArticleController
             $formData = $this->collectFormData();
             $errors = $this->validate($formData, $categoryModel, $authorModel);
 
+
+
             if ($errors === []) {
                 $formData['content'] = Helpers::sanitizeHtml($formData['content']);
+
+                $slug = $formData['slug'] !== '' ? $formData['slug'] : Helpers::slugify($formData['title']);
+
+                // 🔥 Gestion image
+                if (!empty($_FILES['cover_image']['name'])) {
+
+                    $imageService = new ImageModel(); // à créer proprement
+                    $imageName = $imageService->uploadAndOptimizeImage(
+                        $_FILES['cover_image'],
+                        ROOT . '/public/images',
+                        $slug
+                    );
+
+                    if ($imageName === null) {
+                        $errors['cover_image'] = "Erreur lors de l'upload de l'image.";
+                    } else {
+                        $formData['cover_image'] = $imageName;
+                    }
+                }
+
                 $tagsToSync = $this->parseTagsInput((string) $formData['tags_input']);
                 try {
                     $articleId = $articleModel->create($formData);
@@ -292,11 +315,11 @@ final class ArticleController
             $errors['author_id'] = 'Auteur invalide.';
         }
 
-        if ($data['cover_image'] !== '' && filter_var($data['cover_image'], FILTER_VALIDATE_URL) === false) {
-            if (!str_starts_with($data['cover_image'], '/')) {
-                $errors['cover_image'] = 'L URL de couverture doit etre absolue ou commencer par /.';
-            }
-        }
+        // if ($data['cover_image'] !== '' && filter_var($data['cover_image'], FILTER_VALIDATE_URL) === false) {
+        //     if (!str_starts_with($data['cover_image'], '/')) {
+        //         $errors['cover_image'] = 'L URL de couverture doit etre absolue ou commencer par /.';
+        //     }
+        // }
 
         return $errors;
     }
@@ -345,8 +368,3 @@ final class ArticleController
         }
     }
 }
-
-
-
-
-
