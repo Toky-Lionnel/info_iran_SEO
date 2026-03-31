@@ -69,21 +69,21 @@ $navCategories = $navCategories ?? [];
                 </ul>
             </li>
 
-            <li class="nav-dropdown">
+            <!-- <li class="nav-dropdown">
                 <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Communaute</button>
                 <ul class="dropdown-menu" role="list">
                     <li><a href="<?= BASE_URL ?>/nouveautes" <?= ($currentPage ?? '') === 'nouveautes' ? 'aria-current="page"' : '' ?>>Nouveautes</a></li>
                     <li><a href="<?= BASE_URL ?>/debats" <?= ($currentPage ?? '') === 'debats' ? 'aria-current="page"' : '' ?>>Debats</a></li>
-                    <li><a href="<?= BASE_URL ?>/journaux" <?= ($currentPage ?? '') === 'journaux' ? 'aria-current="page"' : '' ?>>Journaux epingles</a></li>
+                    <li><   a href="<?= BASE_URL ?>/journaux" <?= ($currentPage ?? '') === 'journaux' ? 'aria-current="page"' : '' ?>>Journaux epingles</a></li>
                     <li><a href="<?= BASE_URL ?>/archives" <?= ($currentPage ?? '') === 'archives' ? 'aria-current="page"' : '' ?>>Archives</a></li>
                     <li><a href="<?= BASE_URL ?>/carte" <?= ($currentPage ?? '') === 'map' ? 'aria-current="page"' : '' ?>>Carte</a></li>
                     <li><a href="<?= BASE_URL ?>/timeline" <?= ($currentPage ?? '') === 'timeline' ? 'aria-current="page"' : '' ?>>Timeline</a></li>
                     <li><a href="<?= BASE_URL ?>/statistiques" <?= ($currentPage ?? '') === 'stats' ? 'aria-current="page"' : '' ?>>Stats</a></li>
                     <li><a href="<?= BASE_URL ?>/contact" <?= ($currentPage ?? '') === 'contact' ? 'aria-current="page"' : '' ?>>Contact</a></li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 <a href="<?= BASE_URL ?>/abonnes" <?= ($currentPage ?? '') === 'abonnes' ? 'aria-current="page"' : '' ?>>
                     <?= \App\Core\Session::isPremiumSubscriber() ? 'Menu abonne premium' : 'Menu abonne (verrouille)' ?>
                 </a>
@@ -99,7 +99,7 @@ $navCategories = $navCategories ?? [];
                 <li><a href="<?= BASE_URL ?>/compte/logout">Deconnexion compte</a></li>
             <?php else: ?>
                 <li><a href="<?= BASE_URL ?>/compte/login" <?= ($currentPage ?? '') === 'account' ? 'aria-current="page"' : '' ?>>Compte abonne</a></li>
-            <?php endif; ?>
+            <?php endif; ?> -->
 
             <li><a class="nav-admin-link" href="<?= ADMIN_PATH ?>">Back office</a></li>
         </ul>

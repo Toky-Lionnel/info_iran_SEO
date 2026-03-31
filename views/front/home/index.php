@@ -86,7 +86,7 @@
     </div>
 </section>
 
-<section class="section-space" aria-labelledby="section-data-live">
+<!-- <section class="section-space" aria-labelledby="section-data-live">
     <div class="container">
         <h2 id="section-data-live">Data interactive en direct</h2>
         <div class="context-grid">
@@ -107,9 +107,9 @@
             </article>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="section-space" aria-labelledby="section-editorial">
+<!-- <section class="section-space" aria-labelledby="section-editorial">
     <div class="container">
         <h2 id="section-editorial">Editorial premium et debats du moment</h2>
         <div class="context-grid">
@@ -130,7 +130,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-</section>
+</section> -->
 
 <?php if (!empty($latestArticles)): ?>
     <section class="section-space">
@@ -150,7 +150,7 @@
     </section>
 <?php endif; ?>
 
-<section class="section-space context-section" id="avis-utilisateurs">
+<!-- <section class="section-space context-section" id="avis-utilisateurs">
     <div class="container">
         <h2>Avis utilisateurs et critiques de la redaction</h2>
         <p class="context-intro">
@@ -206,4 +206,4 @@
             </article>
         </div>
     </div>
-</section>
+</section> -->
